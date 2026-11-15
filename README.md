@@ -22,7 +22,7 @@ pip install streamlit pandas scikit-learn requests
 ```
 
 1. Run the notebook once to generate `similarity.pkl`. It is too large to store in the repository.
-2. Get a free API key from [themoviedb.org](https://www.themoviedb.org/settings/api) and put it in `fetch_poster()` in `main.py`.
+2. Get a free API key from [themoviedb.org](https://www.themoviedb.org/settings/api) and set it as the `TMDB_API_KEY` environment variable.
 3. Start the app:
 
 ```bash
