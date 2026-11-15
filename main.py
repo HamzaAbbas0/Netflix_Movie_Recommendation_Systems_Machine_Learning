@@ -2,12 +2,15 @@ import streamlit as st
 import  pickle
 import  pandas as pd
 import  requests
+import os
+
+TMDB_API_KEY = os.environ.get('TMDB_API_KEY', '')
 movies_dict = pickle.load(open('movie_dict.pkl','rb'))
 similarity = pickle.load(open('similarity.pkl','rb'))
 movies = pd.DataFrame(movies_dict)
 
 def fetch_poster(movie_id):
-    url = "https://api.themoviedb.org/3/movie/{}?api_key=8265bd1679663a7ea12ac168da84d2e8&language=en-US".format(movie_id)
+    url = "https://api.themoviedb.org/3/movie/{}?api_key={}&language=en-US".format(movie_id, TMDB_API_KEY)
     data = requests.get(url)
     data = data.json()
     # print(data)
